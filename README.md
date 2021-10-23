@@ -9,7 +9,7 @@ I was bored and decided to make this. Just click the corn.
  - Many more()
 
 ## How to play offline
-Just download everything and open the html file. It'll even save it.
+Just download everything and open the html file. It'll even save your progress (once i add saving).
 
 ## How to mod
 
