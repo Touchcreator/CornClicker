@@ -11,12 +11,15 @@
     <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
 
     <button onclick="buyClicker()">Clicker [<span id="clickercost">5</span>] -- <span id="clickers">0</span> clickers</button>
+    <button onclick="buyFarmer()">Farmer [<span id="farmercost">50</span>] -- <span id="farmers">0</span> farmers</button>
 
 <!-- so using an outside js doesnt work..? -->
     <script>
       var score = 0;
       var clickercost = 5;
       var clickers = 0;
+      var farmercost = 50
+      var farmers = 0
 
       function buyClicker() {
         if (score >= clickercost) {
@@ -29,6 +32,17 @@
         }
       }
 
+      function buyFarmer() {
+        if (score >= farmercost) {
+          score = score - farmercost;
+          farmers = farmers + 1;
+          farmercost = Math.round(farmercost * 1.15)
+          document.getElementById("score").innerHTML = score;
+          document.getElementById("farmercost").innerHTML = farmercost;
+          document.getElementById("farmers").innerHTML = farmers;
+        }
+      }
+
       function addCorn(amount) {
         score = score + amount;
         document.getElementById("score").innerHTML = score;
@@ -36,6 +50,7 @@
 
       setInterval(function() {
         score = score + clickers;
+        score = score + farmers * 15;
         document.getElementById("score").innerHTML = score;
       }, 1000); // 1 second
     </script>
