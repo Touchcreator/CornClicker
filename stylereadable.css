@@ -12,11 +12,17 @@
   background-color: #d5d5d5;
   width: 50%;
   padding: 15px 0px 15px 0px;
-  border-radius: 100px
+  border-radius: 100px;
+  font-weight: bold;
 }
 
 button {
   border: none;
   border-radius: 100px;
   background-color: #747474;
+}
+
+body {
+  background-color: #8ed8ff;
+  font-family: 'Roboto', sans-serif;
 }
