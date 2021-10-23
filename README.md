@@ -4,7 +4,7 @@ I was bored and decided to make this. Just click the corn.
 #### To Do:
 
  - Make it actually clickable(x)
- - Add autoclickers()
+ - Add autoclickers(x)
  - Acheivements()
  - Many more()
 
