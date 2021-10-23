@@ -1,0 +1,22 @@
+.sectionLeft {
+  float: left;
+  width: 80%;
+}
+
+.sectionRight {
+  float: right;
+  width: 20%;
+}
+
+.scoreContainer {
+  background-color: #d5d5d5;
+  width: 50%;
+  padding: 15px 0px 15px 0px;
+  border-radius: 100px
+}
+
+button {
+  border: none;
+  border-radius: 100px;
+  background-color: #747474;
+}

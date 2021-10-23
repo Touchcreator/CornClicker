@@ -4,22 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Corn Clicker</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="stylereadable.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <p>Corn: <span id="score">0</span></p>
+    <div class="sectionLeft">
+      <center>
+    <div class="scoreContainer">
+    <span id=score>0</span> corn<br>
+    <span id=scorepersecond>0</span> corn per second
+    </div>
+    <br>
+    <div class="clickerContainer">
     <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
-
+    </div>
+      </center>
+    </div>
+    <div class="sectionRight">
     <button onclick="buyClicker()">Clicker [<span id="clickercost">5</span>] -- <span id="clickers">0</span> clickers</button>
     <button onclick="buyFarmer()">Farmer [<span id="farmercost">50</span>] -- <span id="farmers">0</span> farmers</button>
+    </div>
 
 <!-- so using an outside js doesnt work..? -->
     <script>
+
+// defining stuff
+
       var score = 0;
       var clickercost = 5;
       var clickers = 0;
       var farmercost = 50
       var farmers = 0
+
+//buying stuff
 
       function buyClicker() {
         if (score >= clickercost) {
@@ -29,6 +45,7 @@
           document.getElementById("score").innerHTML = score;
           document.getElementById("clickercost").innerHTML = clickercost;
           document.getElementById("clickers").innerHTML = clickers;
+          updateCornPerSecond();
         }
       }
 
@@ -40,19 +57,31 @@
           document.getElementById("score").innerHTML = score;
           document.getElementById("farmercost").innerHTML = farmercost;
           document.getElementById("farmers").innerHTML = farmers;
+          updateCornPerSecond();
         }
       }
+
+// adding corn
 
       function addCorn(amount) {
         score = score + amount;
         document.getElementById("score").innerHTML = score;
       }
 
+// earning
+
       setInterval(function() {
         score = score + clickers;
         score = score + farmers * 15;
         document.getElementById("score").innerHTML = score;
+
+        document.title = score + " corn - Corn Clicker"
       }, 1000); // 1 second
+
+      function updateCornPerSecond() {
+        scorepersecond = clickers + farmers * 15;
+        document.getElementById("scorepersecond").innerHTML = scorepersecond;
+      }
     </script>
   </body>
 </html>
