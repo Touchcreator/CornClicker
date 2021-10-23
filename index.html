@@ -33,6 +33,10 @@
         score = score + amount;
         document.getElementById("score").innerHTML = score;
       }
+
+      setInterval(function() {
+        score = score + clickers;
+      }, 1000); // 1 second
     </script>
   </body>
 </html>
