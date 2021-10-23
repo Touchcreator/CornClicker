@@ -10,9 +10,24 @@
     <p>Corn: <span id="score">0</span></p>
     <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
 
+    <button onclick="buyClicker()">Clicker [<span id="clickercost">5</span>] -- <span id="clickers">0</span> clickers</button>
+
 <!-- so using an outside js doesnt work..? -->
     <script>
       var score = 0;
+      var clickercost = 5;
+      var clickers = 0;
+
+      function buyClicker() {
+        if (score >= clickercost) {
+          score = score - clickercost;
+          clickers = clickers + 1;
+          clickercost = Math.round(clickercost * 1.15)
+          document.getElementById("score").innerHTML = score;
+          document.getElementById("clickercost").innerHTML = clickercost;
+          document.getElementById("clickers").innerHTML = clickers;
+        }
+      }
 
       function addCorn(amount) {
         score = score + amount;
