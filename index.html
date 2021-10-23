@@ -8,15 +8,16 @@
   </head>
   <body>
     <p>Corn: <span id="score">0</span></p>
-    <img src="images/corn.png" height="256" width="300" onclick="">
+    <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
 
 <!-- so using an outside js doesnt work..? -->
     <script>
       var score = 0;
 
-      document.getElementById("score").innerHTML = score;
-
-      function addCorn(amount)
+      function addCorn(amount) {
+        score = score + amount;
+        document.getElementById("score").innerHTML = score;
+      }
     </script>
   </body>
 </html>
