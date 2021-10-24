@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Corn Clicker</title>
-    <link href="stylereadable.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     </style>
@@ -22,9 +22,29 @@
     </div>
       </center>
     </div>
+
+
     <div class="sectionRight">
-    <button onclick="buyClicker()">Clicker [<span id="clickercost">5</span>] -- <span id="clickers">0</span> clickers</button>
-    <button onclick="buyFarmer()">Farmer [<span id="farmercost">50</span>] -- <span id="farmers">0</span> farmers</button>
+      <table class="shopButton" onclick="buyClicker()">
+        <tr>
+          <td id="image"><img src="images/clicker.jpg" height="128"></td>
+          <td id="nameAndCost">
+            <p>Clicker</p>
+            <p><span id="clickercost">5</span> corn</p>
+          </td>
+          <td id="amount"><span id="clickers">0</span></td>
+        </tr>
+      </table>
+      <table class="shopButton" onclick="buyFarmer()">
+        <tr>
+          <td id="image"><img src="images/farmer.jpg" height="128"></td>
+          <td id="nameAndCost">
+            <p>Farmer</p>
+            <p><span id="farmercost">5</span> corn</p>
+          </td>
+          <td id="amount"><span id="farmers">0</span></td>
+        </tr>
+      </table>
     </div>
 
 <!-- so using an outside js doesnt work..? -->
