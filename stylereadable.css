@@ -9,7 +9,7 @@
 }
 
 .scoreContainer {
-  background-color: #d5d5d5;
+  background-color: #2a2a2a;
   width: 50%;
   padding: 15px 0px 15px 0px;
   border-radius: 100px;
@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: #8ed8ff;
+  background-color: #000;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -34,14 +34,15 @@ body {
 }
 
 .shopButton {
-  background-color: #929292;
+  background-color: #2a2a2a;
+  color: #fff;
   border-radius: 10px;
   width: 100%;
   margin: 5px;
 }
 
 .shopButton:hover {
-  background-color: #d8d8d8;
+  background-color: #4c4c4c;
 }
 
 .shopbutton #image {
