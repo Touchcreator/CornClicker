@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Corn Clicker</title>
-    <link href="stylereadable.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     </style>
@@ -20,6 +20,7 @@
     <div class="clickerContainer">
     <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
     </div>
+    <button onclick="resetData()">Reset Data</button>
       </center>
     </div>
 
@@ -40,9 +41,19 @@
           <td id="image"><img src="images/farmer.jpg" height="128"></td>
           <td id="nameAndCost">
             <p>Farmer</p>
-            <p><span id="farmercost">5</span> corn</p>
+            <p><span id="farmercost">50</span> corn</p>
           </td>
           <td id="amount"><span id="farmers">0</span></td>
+        </tr>
+      </table>
+      <table class="shopButton" onclick="buyGen()">
+        <tr>
+          <td id="image"><img src="images/generator.jpg" height="128"></td>
+          <td id="nameAndCost">
+            <p>Generator</p>
+            <p><span id="generatorcost">500</span> corn</p>
+          </td>
+          <td id="amount"><span id="generators">0</span></td>
         </tr>
       </table>
     </div>
@@ -51,13 +62,24 @@
     <script>
 
 // defining stuff
-
+if (localStorage.getItem("score")) {
+      var score = parseInt(localStorage.getItem("score"),10)
+      var clickercost = parseInt(localStorage.getItem("clickercost"),10)
+      var clickers = parseInt(localStorage.getItem("clickers"),10)
+      var farmercost = parseInt(localStorage.getItem("farmercost"),10)
+      var farmers = parseInt(localStorage.getItem("farmers"),10)
+      var generatorcost = parseInt(localStorage.getItem("generatorcost"),10)
+      var generators = parseInt(localStorage.getItem("generators"),10)
+      var scorepersecond = parseInt(localStorage.getItem("scorepersecond"),10)
+} else {
       var score = 0;
       var clickercost = 5;
       var clickers = 0;
       var farmercost = 50
       var farmers = 0
-
+      var generatorcost = 500
+      var generators = 0
+}
 //buying stuff
 
       function buyClicker() {
@@ -84,6 +106,18 @@
         }
       }
 
+      function buyGen() {
+        if (score >= generatorcost) {
+          score = score - generatorcost;
+          generators = generators + 1;
+          generatorcost = Math.round(generatorcost * 1.15)
+          document.getElementById("score").innerHTML = score;
+          document.getElementById("generatorcost").innerHTML = generatorcost;
+          document.getElementById("generators").innerHTML = generators;
+          updateCornPerSecond();
+        }
+      }
+
 // adding corn
 
       function addCorn(amount) {
@@ -96,15 +130,33 @@
       setInterval(function() {
         score = score + clickers;
         score = score + farmers * 15;
+        score = score + generators * 100;
         document.getElementById("score").innerHTML = score;
 
-        document.title = score + " corn - Corn Clicker"
+        document.title = score + " corn - Corn Clicker";
+        saveData();
       }, 1000); // 1 second
 
       function updateCornPerSecond() {
-        scorepersecond = clickers + farmers * 15;
+        scorepersecond = clickers + farmers * 15 + generators * 100;
         document.getElementById("scorepersecond").innerHTML = scorepersecond;
       }
+
+      function saveData() {
+        localStorage.setItem("score",score);
+        localStorage.setItem("farmers",farmers);
+        localStorage.setItem("clickers",clickers);
+        localStorage.setItem("farmercost",farmercost);
+        localStorage.setItem("clickercost",clickercost);
+        localStorage.setItem("generatorcost",generatorcost);
+        localStorage.setItem("generators",generators);
+        localStorage.setItem("scorepersecond",scorepersecond);
+      }
+      function resetData() {
+        localStorage.clear();
+        location.reload();
+      }
+      
     </script>
   </body>
 </html>
