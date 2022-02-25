@@ -21,11 +21,21 @@
     <img src="images/corn.png" height="256" width="300" onclick="addCorn(1)">
     </div>
     <button onclick="resetData()">Reset Data</button>
+    <button onclick="reportBugs()">Report Bugs</button>
       </center>
     </div>
 
 
     <div class="sectionRight">
+      <table class="shopButton" onclick="playNFTClick()">
+        <tr>
+          <td id="image"><img src="https://nft-clicker.ayomikuntoluwan.repl.co/images/purp%201.png" height="128"></td>
+          <td id="nameAndCost">
+            <p>Play NFT Clicker! Our new (and glitchy) game!</p>
+          </td>
+</td>
+        </tr>
+      </table>
       <table class="shopButton" onclick="buyClicker()">
         <tr>
           <td id="image"><img src="images/clicker.jpg" height="128"></td>
@@ -155,6 +165,12 @@ if (localStorage.getItem("score")) {
       function resetData() {
         localStorage.clear();
         location.reload();
+      }
+      function reportBugs() {
+        location.replace("https://forms.gle/KNYooTLANBK3y2DY8");
+      }
+      function playNFTClick() {
+        location.replace("https://nft-clicker.ayomikuntoluwan.repl.co/");
       }
       
     </script>
