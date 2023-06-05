@@ -17,3 +17,6 @@ Just download everything and open the html file. It'll even save your progress (
  - Download source code
  - Edit the html itself
  - Make a fork of the github
+
+## Notes
+Might make a template version called Cornium or Maizium
